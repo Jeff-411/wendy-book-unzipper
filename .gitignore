@@ -1,0 +1,11 @@
+# folders
+_dev/
+node_modules/
+
+# z_BOOKS
+# z_ZIPS
+
+# files
+*.text
+combined.log
+error.log

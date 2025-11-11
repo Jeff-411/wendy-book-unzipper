@@ -1,31 +1,46 @@
-Project name: unzip-wendy-click
-Current branch: debug-wendy1
+<!-- Path: .github/copilot-instructions.md -->
+<!-- ADMIN META: versioning=none; verification: none -->
+<!-- Note: Admin-only metadata for maintainers; not model directives. -->
 
-Project scope:
+Filter responses for use with:
 
-1. This app is being developed to meet the needs of a single specific client (Wendy).
-2. I have full administrative access to the client's device.
-
-Filter responses for use with this development environment:
-
-- OS: Windows 11 (latest)
+- OS: Windows 11
+- Node.js
 - Editor: VS Code (latest)
-- Default terminal: Git Bash
+- Default terminal: GitBash
 
-Review the following files:
+GitBash uses the following aliases:
 
-- `README.md`
-- `docs/wendy-book-extractor/_Backstory.md`
-- `docs/wendy-book-extractor/Planning1.md`
+```log
+alias gst='git status '
+alias gaa='git add .'
+alias logg='git log --oneline '
+alias gco='git checkout '
+alias gbr='git branch '
+# git - commit
+alias gcd='git commit -m "...dev"' # message = '...dev'
+function gcm() {                   # Prompt for message
+  read -p "Commit message: " message
+  git commit -m "$message"
+}
+```
+
+When generating code, NEVER generate solutions that use deprecated languages or libraries, such as:
+
+- VBScript
 
 Unless specifically instructed otherwise, ignore:
 
-- all folders and files in the `_dev` directory and its subdirectories
+- all folders and files in the `_dev/` directory and its subdirectories
+
+When generating code ONLY provide solutions suitable for the Windows operating system.
 
 When generating code ALWAYS:
 
 1. Provide the simplest, most straightforward solution, and
 2. list optional enhancements, if any, in a separate section.
+
+When generating new files ALWAYS include the full path to the file in a comment on the first line of the file.
 
 When suggesting changes that involve copying existing values:
 
@@ -38,37 +53,21 @@ Before providing a response:
 - Double-check all file paths are correct
 - Verify all code snippets compile/parse
 - Confirm any quoted values match source exactly
-- Highlight any assumptions being made
 
-When showing code changes:
+Unless instructed otherwise, when generating or updating code:
 
-- Mark critical values that must not be altered
-- Highlight security-sensitive sections
-- Include validation steps for the user
+- ALWAYS Provide a complete copy/paste-ready version of the updated file
 
-When code changes are located inside a single function:
+When generating or updating JavaScript files:
 
-- Provide a complete copy/paste-ready version of the updated function
-
-When code changes are not located inside a single function:
-
-- Provide a complete copy/paste-ready version of the updated file
 - If the first line of the original file is a comment, ALWAYS include the commented line
-- If the first commented line in a file includes a version number (e.g.: v1, Version: 1, v1.0.1, etc.), ALWAYS increment the version number when making changes of any sort whatsoever to the file, unless instructed otherwise.
-- ALWAYS format first line header comments with this pattern: `  // <path>.js - vX.Y.Z`
-- If you increment the version number of a JavaScript file, ALWAYS update the files "History" list (last update first) in the file's top-level comment
+- ALWAYS format first line header comments with this Base Pattern:
+  - `// <path-or-label>.js - vX.Y[.Z[.Q]]`
+- OPTIONALLY include additional detail with this Extended Pattern:
+  - `// <path-or-label>.js - vX.Y[.Z[.Q]] [optional descriptor <= 50 chars]`
 
-Format responses with clear sections:
+When generating or updating Markdown:
 
-1. What changes are being made
-2. Why they are needed
-3. How to verify the changes
-4. Potential risks or considerations
-5. Optional enhancements
+- NEVER use backticks in link texts like this: [`MAX_DESCRIPTOR_LEN`]()
 
-Format sections in a nested fashion (i.e., `##`, `###`, etc.) to facilitate file navigation.
-
-When generating the top-level section (i.e., `#`) ALWAYS:
-
-1. insert an empty line before the heading, and
-2. use `# Response` as the top-level heading
+Format sections in a nested fashion (i.e., `## `, `### `, etc.) to facilitate file navigation.
